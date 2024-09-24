@@ -1,0 +1,24 @@
+<div class="container-xl">
+    <section class="article">
+        <h1 class="article__heading">All Articles</h1>
+
+        <ul class="article-ul">
+            <% allPost.forEach(post => { %>
+                <li class="shadow px-4">
+                    <a href="/post/<%= post._id %>/<%= post.title.replace(/ /g,"-") %>" class="article-block">
+                        <span class="img-container">
+                            <img src="/img/<%= post.imgPath %>" class="article-sm-img lazy">
+                        </span>
+                        
+                        <span><%= post.title %></span>
+                        <span class="article-list__date"><%= post.createdAt.toDateString()%></span>
+                    </a>
+                </li>
+            <% }) %>
+        </ul>
+
+        <% if (nextPage!== null) { %>
+            <a href="/news/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+        <% } %>
+    </section>
+</div>

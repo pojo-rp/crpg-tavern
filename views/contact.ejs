@@ -1,0 +1,24 @@
+<div class="container-xl form-page mt-5 mb-5">
+    <h1 class="contact">Contact Us</h1>
+    <p class="introduction">
+        Want to join us? Click <a href="/join" class="join-link">here</a>
+    </p>
+
+    <div class="form-container">
+        <form action = "/contact" class="contact-form" method="POST">
+            <label for="name"><b>Name</b></label>
+            <input type="text" placeholder="Your name" name="name">
+
+            <label for="Email"><b>Email ID</b></label>
+            <input type="text" placeholder="Your Email" name="email">
+
+            <label for="Phone number"><b>Phone Number (optional)</b></label>
+            <input type="text" placeholder="Phone number" name="phone">
+
+            <label for="Message"><b>Message</b></label>
+            <textarea name="message" cols="50" rows="10"></textarea>
+
+            <input type="submit" value="Send" class="btn btn-lg btn-danger form-btn w-100">
+        </form>
+    </div>
+</div>

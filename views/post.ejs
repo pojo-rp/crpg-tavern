@@ -1,0 +1,13 @@
+<div class="container-xl full-article">
+    <h1 class="article-heading"><%= data.title  %></h1>
+    <article class="video-game-article">
+        <div class="container-fluid text-center">  
+            <img src="/img/<%= data.imgPath %>" class="article-img lazy">
+        </div>
+
+        <div class="article-body container-fluid" id="article-body">
+            <%- data.body %>
+        </div>
+        
+    </article>
+</div>
