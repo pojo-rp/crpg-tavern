@@ -214,9 +214,10 @@ img{
     }
     
     .img-container{
-        display: block;
+        flex-shrink: 0;
         width: 220px;
         height: 150px;
+        display:inline;
         overflow: hidden;
         margin-right: 20px;
     }
@@ -396,6 +397,7 @@ p{
 .post-box{
     transition: 0.5s;
     transition-timing-function: ease-out;
+    min-height: max-content;
 }
 
 .post-box:hover{

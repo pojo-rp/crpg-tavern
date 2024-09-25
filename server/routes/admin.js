@@ -12,7 +12,13 @@ const multer = require('multer');
 const storage = multer.diskStorage({
     destination: './public/img/',
     filename: (req,file,cb) => {
-        cb(null, file.originalname);
+        if(!file){
+            cb(null, 'no_file.txt')
+        }
+        else{
+            cb(null, file.originalname);
+        }
+        
     }
 });
 const upload = multer({storage: storage});
@@ -190,21 +196,33 @@ router.put('/edit-post/:id', authMiddleware, upload.single('title-image'), async
         const editedPost = await Post.findById(req.params.id);
         const filePath = 'public/img/' + editedPost.imgPath;
 
+        if(editedPost.imgPath != req.file.originalname){
+            fs.unlink(filePath, (err) => {
+                if (err) {
+                    console.error(`Error removing file: ${err}`);
+                }
+                else{
+                    console.log(`File ${filePath} has been successfully removed.`);
+                }
+                
+            });
+        }
+
+        let origname = 'no_image_found.png';
+        
+        if(req.file!= null && req.file!=undefined){
+            origname = req.file.originalname;
+        }
+         
+
         await Post.findByIdAndUpdate(req.params.id, {
             title: req.body.title,
             body: req.body.body,
             updatedAt: Date.now(),
-            imgPath: req.file.originalname
+            imgPath: origname
         });
 
-        fs.unlink(filePath, (err) => {
-            if (err) {
-              console.error(`Error removing file: ${err}`);
-              return;
-            }
-          
-            console.log(`File ${filePath} has been successfully removed.`);
-        });
+        
 
         res.redirect(`/dashboard`);
 
@@ -224,7 +242,6 @@ router.delete('/delete-post/:id', authMiddleware, async (req, res) => {
         fs.unlink(filePath, (err) => {
             if (err) {
               console.error(`Error removing file: ${err}`);
-              return;
             }
           
             console.log(`File ${filePath} has been successfully removed.`);
