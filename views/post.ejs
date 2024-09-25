@@ -1,5 +1,15 @@
 <div class="container-xl full-article">
     <h1 class="article-heading"><%= data.title  %></h1>
+    <div class="row container-fluid">
+        <div class="col-sm-4">
+            <h3>Created at: <%= data.createdAt.toDateString() %></h3>
+        </div>
+        <div class="col-sm-8 text-right">
+            <div class="sharethis-inline-share-buttons"></div>
+            <input id = "url-copied" class="btn btn-secondary btn-lg float-end link-btn" type="button" value="Copy Link" onclick="copy();copySuccess();">
+        </div>
+    </div>
+    
     <article class="video-game-article">
         <div class="container-fluid text-center">  
             <img src="/img/<%= data.imgPath %>" class="article-img lazy">

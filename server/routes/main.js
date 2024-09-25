@@ -94,7 +94,9 @@ router.get('/post/:id/:postTitle', async (req, res) => {
 
         const data = await Post.findById({_id: postId});
 
-        res.render('post', {data, currentRoute:`/post/$(pTitle)/$(postId)`});
+        const metaimg = data.imgPath;
+
+        res.render('post', {data, currentRoute:`/post/$(pTitle)/$(postId)`, metaimg: metaimg});
         
     } catch (error) {
         console.log(error);
