@@ -6,7 +6,12 @@
     <meta name="keywords" content="RPG, Video-Game, CRPG, Database, Review, News">
     <meta name="description" content="CRPG Tavern is a single website for latest news, information and reviews about CRPGs">
     <meta name="robots" content="index, follow">
-    <meta property="og:image" content = "">
+    <% if (!locals.metaimg) { %>
+        <meta property="og:image" content = "/img/default.jpg">
+    <% } else { %>
+     
+    <meta property="og:image" content = "/img/<%= metaimg %>">
+    <% } %>
     <meta property="og:type" content="article">
     <title> Home</title>
     <!-- Latest compiled and minified CSS -->
@@ -17,6 +22,7 @@
     <link rel="stylesheet" href = "/css/style.css">
     <script type="text/javascript" defer src = "/js/script.js"></script>
 
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=66f45e204a9f71001934c668&product=inline-share-buttons&source=platform" async="async"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7P336V8WE9"></script>
     <script>
