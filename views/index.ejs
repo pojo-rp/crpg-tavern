@@ -11,8 +11,8 @@
                 <% latestPost.forEach(post => { %>
                     
                     <div class="col-md-3 text-center post-box">
-                        <a href="/post/<%= post._id %>/<%= post.title.replace(/ /g,"-") %>">
-                            <div class="container-fluid shadow mt-3 pt-4 pb-2">
+                        <a href="/post/<%= post._id %>/<%= post.title.replace(/ /g,"-") %>" class="post-link h-100 d-inline-block">
+                            <div class="container-fluid shadow mt-3 pt-4 pb-2 h-100">
                                 <img src="/img/<%= post.imgPath %>" class="rounded post-img lazy">
                                 <h3 class="box-title m-3"><%= post.title %></h3>
                             </div>
