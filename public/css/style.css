@@ -179,7 +179,7 @@ img{
 
 .article-body a{
     text-decoration: underline;
-    color:darkgrey;
+    color:var(--gray);
 }
 
 .article-img{
