@@ -20,4 +20,22 @@
         </div>
         
     </article>
+    <h2>Check out some of our other Articles</h2>
+    <div class="empty-sm"></div>
+    <p>
+        <ul>
+            <% if (nextPost!= null) { %>
+                <li class="h2">
+                    <a href="/post/<%= nextPost._id %>/<%= nextPost.title.replace(/ /g,"-") %>"><%= nextPost.title %></a>
+                </li>
+            <% } %>
+            
+            <% if (prevPost!= null) { %>  
+                <li class="h2">
+                    <a href="/post/<%= prevPost._id %>/<%= prevPost.title.replace(/ /g,"-") %>"><%= prevPost.title %></a>
+                </li>
+            <% } %>
+            
+        </ul>
+    </p>
 </div>

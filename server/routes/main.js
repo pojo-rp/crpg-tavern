@@ -95,8 +95,10 @@ router.get('/post/:id/:postTitle', async (req, res) => {
         const data = await Post.findById({_id: postId});
 
         const metaimg = data.imgPath;
+        const nextPost = await Post.findOne({createdAt:{$gt: data.createdAt}}).sort({createdAt: 1});
+        const prevPost = await Post.findOne({createdAt:{$lt: data.createdAt}}).sort({createdAt: -1});
 
-        res.render('post', {data, currentRoute:`/post/$(pTitle)/$(postId)`, metaimg: metaimg});
+        res.render('post', {data, nextPost, prevPost, currentRoute:`/post/$(pTitle)/$(postId)`, metaimg: metaimg});
         
     } catch (error) {
         console.log(error);
