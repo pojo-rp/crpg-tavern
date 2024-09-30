@@ -7,10 +7,10 @@
     <meta name="description" content="CRPG Tavern is the website for latest news, information and reviews about Computer Role Playing Games">
     <meta name="robots" content="index, follow">
     <% if (!locals.metaimg) { %>
-        <meta property="og:image" content = "/img/default.jpg">
+        <meta name="og:image" content = "/img/default.jpg">
     <% } else { %>
      
-    <meta property="og:image" content = "https://crpgtavern.com/img/<%= metaimg %>">
+    <meta name="og:image" content = "https://crpgtavern.com/img/<%= metaimg %>">
     <meta name="twitter:image" content = "https://crpgtavern.com/img/<%= metaimg %>">
     <meta name="twitter:card" content = "summary_large_image">
     <% } %>
