@@ -27,13 +27,13 @@ app.use(cookieParser());
 app.use(methodOverride('_method'));
 
 app.use(session({
-    secret: 'nice sword',
+    secret: 'nice-sword',
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
         mongoUrl: process.env.MONGODB_URI
     }),
-    cookie: {maxAge: new Date (Date.now() + (360))}
+    cookie: {maxAge: 300000}
 
 }));
 
