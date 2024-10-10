@@ -181,6 +181,12 @@ img{
     text-decoration: underline;
     color:var(--gray);
 }
+.sub-img{
+    height: auto;
+    width: 800px;
+    max-width: 100%;
+    margin: 20px 0 20px 0;
+}
 
 .article-img{
     height: auto;
