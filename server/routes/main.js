@@ -90,15 +90,16 @@ router.get('/join', (req, res) => {
 router.get('/post/:id/:postTitle', async (req, res) => {
     try {
         let postId = req.params.id;
-        let pTitle = req.params.postTitle;
+        
 
         const data = await Post.findById({_id: postId});
+        let pTitle = data.title;
 
         const metaimg = data.imgPath;
         const nextPost = await Post.findOne({createdAt:{$gt: data.createdAt}}).sort({createdAt: 1});
         const prevPost = await Post.findOne({createdAt:{$lt: data.createdAt}}).sort({createdAt: -1});
 
-        res.render('post', {data, nextPost, prevPost, currentRoute:`/post/$(pTitle)/$(postId)`, metaimg: metaimg});
+        res.render('post', {data, nextPost, prevPost, currentRoute:`/post/$(pTitle)/$(postId)`, metaimg: metaimg, title: pTitle});
         
     } catch (error) {
         console.log(error);
